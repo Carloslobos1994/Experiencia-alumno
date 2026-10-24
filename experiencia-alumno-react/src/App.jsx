@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Login from "./views/LoginView";
 import NavbarAlumno from "./components/NavbarAlumno";
 import HomeView from "./views/HomeView";
@@ -8,46 +8,35 @@ import MensualidadesView from "./views/MensualidadesView";
 import Footer from "./components/Footer";
 
 function App() {
-  const [usuarioActivo, setUsuarioActivo] = useState(null);
+  const [usuarioActivo, setUsuarioActivo] = useState(
+    () => sessionStorage.getItem("usuario")
+  );
   const [vistaActual, setVistaActual] = useState("home");
 
-  
-  useEffect(() => {
-    const usuarioGuardado = sessionStorage.getItem("usuario");
-    if (usuarioGuardado) {
-      setUsuarioActivo(usuarioGuardado);
-    }
-  }, []);
-
-  
   const handleCambiarVista = (vista) => {
     if (vista === "login") {
       sessionStorage.removeItem("usuario");
       setUsuarioActivo(null);
-      setVistaActual("home"); 
+      setVistaActual("home");
     } else {
       setVistaActual(vista);
     }
   };
 
- 
   if (!usuarioActivo) {
     return <Login onLoginSuccess={(user) => setUsuarioActivo(user)} />;
   }
 
-  
   return (
     <div>
-      <NavbarAlumno cambiarVista={handleCambiarVista} usuario={usuarioActivo} />
+      <NavbarAlumno cambiarVista={handleCambiarVista} />
 
-      {/* Renderizado condicional de las vistas reales */}
       {vistaActual === "home" && <HomeView />}
       {vistaActual === "cursos" && <CursosView />}
       {vistaActual === "proyectos" && <ProyectosView />}
       {vistaActual === "mensualidades" && <MensualidadesView />}
-      
-    <Footer />  
-    </div>  
+      <Footer />
+    </div>
   );
 }
 

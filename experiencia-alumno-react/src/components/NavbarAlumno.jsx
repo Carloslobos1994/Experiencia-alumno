@@ -1,6 +1,6 @@
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
-function NavbarAlumno({ cambiarVista, usuario }) {
+function NavbarAlumno({ cambiarVista }) {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="px-3 shadow-sm">
       <Container fluid>

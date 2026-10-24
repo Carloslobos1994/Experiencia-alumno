@@ -1,0 +1,38 @@
+/* Color global institucional y tipografía limpia */
+:root {
+  --duoc-blue: #002b49;
+  --duoc-yellow: #ffb81c;
+  --bg-main: #f4f6f9;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main) !important;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Permitir que el contenedor ocupe todo el ancho */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos de bordes y sombras ejecutivas */
+.card-ejecutiva {
+  background: #ffffff !important;
+  border: none !important;
+  border-left: 5px solid #0d6efd !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-ejecutiva:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12) !important;
+}

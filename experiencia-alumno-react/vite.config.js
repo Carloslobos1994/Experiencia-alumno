@@ -15,6 +15,19 @@ export default defineConfig({
       name: 'chromium',
       provider: playwright(),
       headless: true,
-    }
+    },
+    // Cobertura de codigo (npm run coverage): sentencias, ramas, funciones y lineas.
+    // Reporte HTML en coverage/index.html
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'json-summary'],
+      include: ['src/**/*.{js,jsx}'],
+      exclude: ['src/main.jsx', 'src/test/**', 'src/**/*.test.{js,jsx}', 'src/data/**'],
+      // Umbrales minimos para la logica critica (sesion, permisos, validaciones, API)
+      thresholds: {
+        'src/utils/**': { statements: 90, branches: 75, functions: 90, lines: 90 },
+        'src/routes/**': { statements: 90, branches: 75, functions: 90, lines: 90 },
+      },
+    },
   },
 })

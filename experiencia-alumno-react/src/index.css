@@ -36,3 +36,11 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12) !important;
 }
+/* Tarjetas de proyecto clicables (Evaluacion 3) */
+.tarjeta-proyecto {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tarjeta-proyecto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12) !important;
+}
